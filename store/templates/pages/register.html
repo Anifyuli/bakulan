@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block content %}
+  <!-- Header -->
+  <header class="bg-dark py-5 mt-0">
+    <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+        <h1 class="display-4 fw-bolder">Register</h1>
+        <p class="lead fw-normal text-white-50 mb-0">Please fill required datas here</p>
+      </div>
+    </div>
+  </header>
+  <!-- Container form -->
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-body p-4">
+            <form method="POST" action="{% url 'login' %}">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="usernameInput" class="form-label">Username</label>
+                <input type="text" class="form-control" id="usernameInput" placeholder="Enter your email" aria-describedby="usernameHelp" name="username" />
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="passwordInput" class="form-label">Password</label>
+                <input type="password" class="form-control" id="passwordInput" placeholder="Enter your password" name="password" />
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberCheck" />
+                <label class="form-check-label" for="rememberCheck">Remember me</label>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
