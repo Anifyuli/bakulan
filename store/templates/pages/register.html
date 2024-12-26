@@ -15,23 +15,9 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card shadow-sm">
           <div class="card-body p-4">
-            <form method="POST" action="{% url 'login' %}">
-              {% csrf_token %}
-              <div class="mb-3">
-                <label for="usernameInput" class="form-label">Username</label>
-                <input type="text" class="form-control" id="usernameInput" placeholder="Enter your email" aria-describedby="usernameHelp" name="username" />
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-              </div>
-              <div class="mb-3">
-                <label for="passwordInput" class="form-label">Password</label>
-                <input type="password" class="form-control" id="passwordInput" placeholder="Enter your password" name="password" />
-              </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="rememberCheck" />
-                <label class="form-check-label" for="rememberCheck">Remember me</label>
-              </div>
-              <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Login</button>
+            <form method="POST" action="{% url 'register' %}">
+              {% csrf_token %}{{ form.as_p }}<div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success">Register</button>
               </div>
             </form>
           </div>

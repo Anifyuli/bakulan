@@ -1,0 +1,45 @@
+# .editorconfig file
+root = true
+
+# General settings for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Specific settings for Python files
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 79
+
+# Settings for HTML files (e.g., Django templates)
+[*.html]
+indent_style = space
+indent_size = 2
+
+# Settings for CSS files
+[*.css]
+indent_style = space
+indent_size = 2
+
+# Settings for JavaScript files
+[*.js]
+indent_style = space
+indent_size = 2
+
+# Settings for JSON files
+[*.json]
+indent_style = space
+indent_size = 2
+
+# Settings for Markdown files
+[*.md]
+trim_trailing_whitespace = false
+
+# Settings for YAML files (e.g., settings.yaml or other configuration files)
+[*.yaml]
+[*.yml]
+indent_style = space
+indent_size = 2
