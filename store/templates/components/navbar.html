@@ -31,7 +31,7 @@
             <a href="{% url 'cartSummary' %}" class="btn btn-outline-dark" type="submit">
               <i class="bi-cart-fill me-1"></i>
               Cart
-              <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+              <span id="cart-counter" class="badge bg-dark text-white ms-1 rounded-pill">{{ cart|length }}</span>
             </a>
           </form>
           <form class="d-flex">

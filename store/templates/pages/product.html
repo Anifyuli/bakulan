@@ -20,12 +20,9 @@
             <h6 class="card-subtitle mb-2">Description</h6>
             <p class="card-text">{{ product.description }}</p>
             <div class="my-2">
-              <form action="{% url 'cartAdd' %}" method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="action" value="POST" />
-                <input type="hidden" name="productId" value="{{ product.id }}" />
-                <button type="submit" class="btn btn-success">Add to Cart</button>
-              </form>
+              <div class="my-2">
+                <button type="button" value="{{ product.id }}" id="addCart" class="btn btn-success">Add to Cart</button>
+              </div>
             </div>
             <p class="card-text">
               <small class="text-muted">Last updated 3 mins ago</small>
@@ -35,4 +32,27 @@
       </div>
     </div>
   </div>
+  <script>
+    $(document).on('click', '#addCart', function (e) {
+      e.preventDefault()
+      let productId = $(this).val()
+
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'cartAdd' %}",
+        data: {
+          productId: productId,
+          csrfmiddlewaretoken: '{{ csrf_token }}',
+          action: 'POST'
+        },
+        success: function (response) {
+          document.getElementById('cart-counter').textContent = response.Quantity
+          location.reload()
+        },
+        error: function (xhr, errmsg, err) {
+          console.error('Error response:', xhr.responseText)
+        }
+      })
+    })
+  </script>
 {% endblock %}
